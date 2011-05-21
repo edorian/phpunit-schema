@@ -8,7 +8,7 @@
     <xs:element name="testsuites" type="testSuitesType" substitutionGroup="testSuiteFacet" />
 
     <xs:complexType name="testSuitesType">
-        <xs:sequence>
+        <xs:sequence maxOccurs="unbounded">
             <xs:element name="testsuite" type="testSuiteType"/>
         </xs:sequence>                
     </xs:complexType>
@@ -17,5 +17,5 @@
         <xs:group ref="pathGroup"/>
         <xs:attribute name="name" type="xs:string" use="required" />        
     </xs:complexType>
-    
+
 </xs:schema>

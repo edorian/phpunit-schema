@@ -14,7 +14,15 @@
         <xs:annotation>
             <xs:documentation>The main type specifying the document structure</xs:documentation>
         </xs:annotation>
-        <xs:group ref="configGroup"/>
+        <xs:sequence maxOccurs="unbounded">
+            <xs:element ref="testSuiteFacet" minOccurs="0"/>                    
+            <xs:element name="groups" type="groupsType" minOccurs="0"/>
+            <xs:element name="filter" type="filtersType" minOccurs="0"/>
+            <xs:element name="logging" type="loggersType" minOccurs="0"/>
+            <xs:element name="listeners" type="listenersType" minOccurs="0"/>
+            <xs:element name="php" type="phpType" minOccurs="0"/>
+            <xs:element name="selenium" type="seleniumType" minOccurs="0"/>            
+        </xs:sequence>
         <xs:attributeGroup ref="configAttributeGroup"/>
     </xs:complexType>
         
@@ -41,16 +49,4 @@
         <xs:attribute name="testSuiteLoaderFile" type="xs:anyURI"  />
         <xs:attribute name="verbose" type="xs:boolean" default="false" />    
     </xs:attributeGroup>       
-
-    <xs:group name="configGroup">
-        <xs:all>
-            <xs:element ref="testSuiteFacet" minOccurs="0"/>                    
-            <xs:element name="groups" type="groupsType" minOccurs="0"/>
-            <xs:element name="filter" type="filtersType" minOccurs="0"/>
-            <xs:element name="logging" type="loggersType" minOccurs="0"/>
-            <xs:element name="listeners" type="listenersType" minOccurs="0"/>
-            <xs:element name="php" type="phpType" minOccurs="0"/>
-            <xs:element name="selenium" type="seleniumType" minOccurs="0"/>            
-        </xs:all>
-    </xs:group> 
 </xs:schema>
